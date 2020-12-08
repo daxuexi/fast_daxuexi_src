@@ -42,13 +42,8 @@ class Spider_onepage():
         '''用BeautifulSoup解析'''
 
         soup = BeautifulSoup(self.html, 'lxml')
-        title = soup.title.string
-        print(title)
-        titles = soup.find_all(attrs={'class': class_name})
-        print(type(titles))
-        final_title = re.findall('.*<h1>(.*)</h1>.*',str(titles))
-        print('titles:{}'.format(final_title))
-        return final_title[0]
+        title = soup.title.text
+        return title
 
 
 def get_title_ulrs():
