@@ -6,7 +6,6 @@ import time
 from collections import OrderedDict
 
 
-# 定义爬虫类
 class Spider():
     def __init__(self):
         self.url = 'http://news.cyol.com/node_67071.htm'
@@ -19,8 +18,6 @@ class Spider():
         self.html = r.text
 
     def BeautifulSoup_find(self,class_name):
-        '''用BeautifulSoup解析'''
-
         soup = BeautifulSoup(self.html, 'lxml')
         titles = soup.find_all(attrs={'class': class_name})
         link_list = []
@@ -39,8 +36,6 @@ class Spider_onepage():
         self.html = r.text
 
     def BeautifulSoup_find(self,class_name):
-        '''用BeautifulSoup解析'''
-
         soup = BeautifulSoup(self.html, 'lxml')
         title = soup.title.text
         return title
